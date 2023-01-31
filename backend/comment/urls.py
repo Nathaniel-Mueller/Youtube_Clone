@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('<pk>', views.videoComments)
+    path('', views.postComments),
+    path('<pk>', views.viewComments)
 ]
