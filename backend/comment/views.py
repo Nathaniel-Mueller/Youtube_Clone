@@ -7,9 +7,9 @@ from .serializers import *
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def viewComments(request, pk):
+def viewComments(request, video_id):
     if request.method == 'GET':
-        comments = Comment.objects.filter(video_id=pk)
+        comments = Comment.objects.filter(video_id=video_id)
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
     
