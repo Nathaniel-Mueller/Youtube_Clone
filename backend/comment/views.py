@@ -15,10 +15,11 @@ def viewComments(request, video_id):
     
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def postComments(request):
+def postComments(request, video_id):
     print(
     'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
+        comments = Comment.objects.filter(video_id=video_id)
         serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user = request.user)
