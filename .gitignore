@@ -260,5 +260,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Local keys and data
 frontend/src/localKey.js
 frontend/src/pages/VideoPage/localData.js
