@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 import axios from 'axios';
-
+import CommentBox from '../../components/CommentBox/CommentBox';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 
 const VideoPage = () => {
 
@@ -11,35 +12,35 @@ const VideoPage = () => {
         comment: ""
     }
 
+
     const [user, token] = useAuth()
     const navigate = useNavigate()
     const [formData, handleInputChange, handleSubmit] = useCustomForm(formValues, postComment)
 
     async function postComment(){
         try {
-            let response = await axios.post(`/api/comment/${video_id}`, formData, {
+            
+            let response = await axios.post(`http://127.0.0.1:3000/api/comment/`, formData, {
                 headers: {
                     Authorization: 'Bearer ' + token
                 }
             })
+            
             
         } catch (error) {
             
         }
     }
 
-    let video_id = 'p6xqKJqsQWs'
-    
+
     
 
     return (
         <div>
+            <VideoPlayer videoId = '7lCDEYXw3mM'/>
+            <CommentBox/>
             <div>
-            <iframe id="ytplayer" type="text/html" width="640" height="360"
-                src={'https://www.youtube.com/embed/'+video_id}
-                frameBorder="0"></iframe>
-            </div>
-            <div>
+                {user ? (
                 <form onSubmit={handleSubmit}>
                     <label>
                         Post A Comment:{" "}
@@ -50,8 +51,13 @@ const VideoPage = () => {
                             onChange={handleInputChange}
                             />
                     </label>
+                    
                     <button>Submit</button>
+                    
                 </form>
+                ) : (
+                    <p onClick={navigate("/login")}>You must be logged in to post a comment</p>
+                )}
             </div>
         </div>
     )
