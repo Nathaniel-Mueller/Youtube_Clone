@@ -49,7 +49,7 @@ const VideoPage = () => {
     return (
         <div>
             <VideoPlayer videoId = {videoId}/>
-            <CommentBox/>
+            <CommentBox videoId = {videoId}/>
             <div>
                 {user ? (
                 <form onSubmit={handleSubmit}>
