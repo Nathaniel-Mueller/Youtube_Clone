@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import CommentBox from '../../components/CommentBox/CommentBox';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
@@ -8,10 +7,18 @@ import { KEY } from '../../localKey';
 import { DATA } from './localData';
 
 const VideoPage = () => {
-    
-    const videoId = '7lCDEYXw3mM'
+
+    const location = useLocation()
+    const [videoId, setVideoId] = useState('video_id_here')
+    const [videoTitle, setVideoTitle] = useState('placeholder')
+    const [videoDesc, setVideoDesc] = useState('placeholder')
     const [relatedVideos, setRelatedVideos] = useState([DATA])
     const navigate = useNavigate()
+    
+
+    useMemo(() => {
+        setVideoId(location.state.videoId)
+    }, [])
 
 
     async function fetchRelatedVideos(){
@@ -26,7 +33,7 @@ const VideoPage = () => {
 
     return (
         <div>
-            <VideoPlayer videoId = {videoId}/>
+            <VideoPlayer propsData = {{videoId: videoId, videoDesc: videoDesc, videoTitle: videoTitle}}/>
             <CommentBox videoId = {videoId}/>
         </div>
     )

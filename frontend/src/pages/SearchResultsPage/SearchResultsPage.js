@@ -1,19 +1,24 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAuth from "../../hooks/useAuth"
-import useCustomForm from "../../hooks/useCustomForm"
 
 const SearchResultsPage = () => {
 
-    const [user, token] = useAuth()
     const navigate = useNavigate()
-    const [formData, handleInputChange, handleSubmit] = useCustomForm()
+    const [videoId, setVideoId] = useState('7lCDEYXw3mM')
+    const [videoTitle, setVideoTitle] = useState('')
+    const [videoDesc, setVideoDesc] = useState('')
 
+    function goToPage(){
+        navigate('/watch', {
+            state: {
+                videoId: videoId,
+                title: videoTitle,
+                desc: videoDesc
+            }})
+    }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-
-            </form>
+            <button onClick={goToPage}>Route</button>
         </div>
     )
 

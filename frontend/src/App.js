@@ -29,6 +29,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/searchresults" element={<SearchResultsPage />} />
         <Route path="/watch" element={<VideoPage/>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
