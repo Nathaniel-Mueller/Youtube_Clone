@@ -4,6 +4,7 @@ import { KEY } from '../../localKey'
 import { DATA } from './localData';
 import { Navigate, useNavigate } from 'react-router-dom';
 import useCustomForm from "../../hooks/useCustomForm"
+import './YouTubePage.css'
 
 const YouTubePage = () => {
 
@@ -32,14 +33,16 @@ const YouTubePage = () => {
     }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='center'>
+            <div>Search for a video:{' '}</div>
+            <form onSubmit={handleSubmit} className='space'>
                 <input
+                className='resize'
                 name='text'
                 type='text'
                 value = {formData.text}
                 onChange={handleInputChange}
-                ></input> <button>Submit</button>
+                ></input> <button className='space'>Search</button>
             </form>
         </div>
     )
