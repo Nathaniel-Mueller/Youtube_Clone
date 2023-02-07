@@ -60,7 +60,6 @@ const VideoPage = () => {
                             <img
                                 src = {video.snippet.thumbnails.default.url}/>
                             <h3>{video.snippet.title}</h3>
-                            <p>{video.snippet.description}</p>
                         </div>
                     )
                 })}
