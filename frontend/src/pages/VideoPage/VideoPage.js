@@ -14,7 +14,7 @@ const VideoPage = () => {
     const [videoId, setVideoId] = useState('video_id_here')
     const [videoTitle, setVideoTitle] = useState('placeholder')
     const [videoDesc, setVideoDesc] = useState('placeholder')
-    const [relatedVideos, setRelatedVideos] = useState([DATA])
+    const [relatedVideos, setRelatedVideos] = useState([])
     const navigate = useNavigate()
     
 
@@ -37,11 +37,11 @@ const VideoPage = () => {
     async function fetchRelatedVideos(){
         const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${KEY}&part=snippet`)
         setRelatedVideos(response.data.items)
-        console.log(response.data.items)
+        //console.log(response.data.items)
     }
 
     useEffect(() => {
-        //fetchRelatedVideos()
+        fetchRelatedVideos()
     }, [])
 
 
@@ -52,7 +52,7 @@ const VideoPage = () => {
                 <CommentBox videoId = {videoId}/>
             </div>
             <div className='related-vids'>
-                {relatedVideos[0].map((video) => { 
+                {relatedVideos.map((video) => { 
                     return (
                         <div key={video.id.videoId}
                             onClick={() =>
