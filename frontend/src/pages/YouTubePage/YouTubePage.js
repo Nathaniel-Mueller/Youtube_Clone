@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { KEY } from '../../localKey'
 import { DATA } from './localData';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useCustomForm from "../../hooks/useCustomForm"
 import './YouTubePage.css'
 

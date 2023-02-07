@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 import axios from "axios";
@@ -10,8 +11,12 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
+    console.log('Redirecting to YouTube Page')
+    navigate('/ytclone') //automatically redirects to YouTubePage
+
     const fetchCars = async () => {
       try {
         let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
