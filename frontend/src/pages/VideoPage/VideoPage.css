@@ -1,14 +1,14 @@
 .box{
     display: flex;
     flex-flow: nowrap row;
+    margin: 3em;
 }
 
 .related-vids {
     margin-left: 5em;
     font-size: 15px;
 }
-.related-vids img {
-    object-fit: cover;
-    overflow: hidden;
-    max-height: 100%;
+
+.make-space{
+    max-width: 1136px;
 }

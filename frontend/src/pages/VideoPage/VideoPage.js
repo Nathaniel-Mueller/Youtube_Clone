@@ -47,7 +47,7 @@ const VideoPage = () => {
 
     return (
         <div className='box'>
-            <div>
+            <div className='make-space'>
                 <VideoPlayer propsData = {{videoId: videoId, videoDesc: videoDesc, videoTitle: videoTitle}}/>
                 <CommentBox videoId = {videoId}/>
             </div>
