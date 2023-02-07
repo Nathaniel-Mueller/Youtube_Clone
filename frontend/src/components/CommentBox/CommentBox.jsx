@@ -17,7 +17,6 @@ const CommentBox = (props) => {
         })
         const tempUsers = [...new Map(getUsers.map((user) => [user.id, user])).values()]
         setUsers(tempUsers)
-        console.log(response.data)
         setComments(response.data)
     }
    
@@ -35,7 +34,7 @@ const CommentBox = (props) => {
             {comments.map((comment) => {
                 if (comment.video_id === videoId)
                 return (
-                    <ul>
+                    <ul key={comment.id}>
                         {comment.user.first_name} {comment.user.last_name} says: {comment.text}
                     </ul>
                 )

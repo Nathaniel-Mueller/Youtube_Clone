@@ -1,0 +1,14 @@
+.box{
+    display: flex;
+    flex-flow: nowrap row;
+}
+
+.related-vids {
+    margin-left: 5em;
+    font-size: 15px;
+}
+.related-vids img {
+    object-fit: cover;
+    overflow: hidden;
+    max-height: 100%;
+}

@@ -264,3 +264,4 @@ dist
 # Local keys and data
 frontend/src/localKey.js
 frontend/src/pages/VideoPage/localData.js
+frontend/src/pages/YouTubePage/localData.js

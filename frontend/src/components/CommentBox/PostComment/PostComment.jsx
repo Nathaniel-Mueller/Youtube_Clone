@@ -31,7 +31,6 @@ const PostComment = (props) => {
             text: formData.text,
             video_id: props.propsData.videoId,
         } 
-        console.log(currentUser)
         props.propsData.postComment(newComment)
         postComment()
     }

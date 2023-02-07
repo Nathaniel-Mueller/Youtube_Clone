@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import VideoPage from "./pages/VideoPage/VideoPage";
 import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
+import YouTubePage from "./pages/YouTubePage/YouTubePage"
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -29,6 +30,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/ytclone" element={<YouTubePage />} />
         <Route path="/searchresults" element={<SearchResultsPage />} />
         <Route path="/watch" element={<VideoPage/>} />
         <Route path="/register" element={<RegisterPage />} />
