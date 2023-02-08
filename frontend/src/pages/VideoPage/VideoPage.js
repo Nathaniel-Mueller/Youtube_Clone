@@ -4,7 +4,7 @@ import axios from 'axios';
 import CommentBox from '../../components/CommentBox/CommentBox';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import { KEY } from '../../localKey';
-import { DATA } from './localData';
+// import { DATA } from './localData';
 import './VideoPage.css'
 
 

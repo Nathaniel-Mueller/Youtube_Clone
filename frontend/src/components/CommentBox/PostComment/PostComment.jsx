@@ -16,12 +16,12 @@ const PostComment = (props) => {
     const [user, token] = useAuth()
     let currentUser = []
 
-    user ? (currentUser = props.propsData.users.filter((u) => {
+    user && 
+    (currentUser = props.propsData.users.filter((u) => {
         if (user.id === u.id){
             return true;
         }
-    })) :
-    (currentUser = [])
+    }))
     const [formData, handleInputChange] = useCustomForm(formValues, props.propsData.postComment)
     function handleSubmit (e){
         e.preventDefault();
