@@ -35,7 +35,7 @@ const VideoPage = () => {
     }
 
     async function fetchRelatedVideos(){
-        const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${KEY}&part=snippet`)
+        const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${KEY}&part=snippet&maxResults=20`)
         setRelatedVideos(response.data.items)
         //console.log(response.data.items)
     }
@@ -46,7 +46,7 @@ const VideoPage = () => {
 
 
     return (
-        <div className='box'>
+        <div className='box player'>
             <div className='make-space'>
                 <VideoPlayer propsData = {{videoId: videoId, videoDesc: videoDesc, videoTitle: videoTitle}}/>
                 <CommentBox videoId = {videoId}/>
@@ -55,11 +55,12 @@ const VideoPage = () => {
                 {relatedVideos.map((video) => { 
                     return (
                         <div key={video.id.videoId}
+                            className='in-line'
                             onClick={() =>
                                 goToPage(video.id.videoId, video.snippet.title, video.snippet.description)}>
                             <img
                                 src = {video.snippet.thumbnails.default.url}/>
-                            <h3>{video.snippet.title}</h3>
+                            <h3 className='text'>{video.snippet.title}</h3>
                         </div>
                     )
                 })}

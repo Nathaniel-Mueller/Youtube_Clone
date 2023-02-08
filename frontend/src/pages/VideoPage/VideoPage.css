@@ -12,3 +12,19 @@
 .make-space{
     max-width: 1136px;
 }
+
+.in-line{
+    display: flex;
+    flex-flow: nowrap row;
+    align-items: center;
+    margin-bottom: 3em;
+}
+
+.text{
+    margin-left: 1em;
+}
+
+.player {
+    background-color: gray;
+    padding: 2em;
+}

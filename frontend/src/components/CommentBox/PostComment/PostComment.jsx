@@ -71,7 +71,7 @@ const PostComment = (props) => {
                     <button>Submit</button>
                 </form>
                 ) : (
-                    <div>Please log in to post a comment.</div>
+                    <h3>You must be logged in to post a comment.</h3>
                 )}
         </div>
      );

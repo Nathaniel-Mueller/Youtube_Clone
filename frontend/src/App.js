@@ -22,14 +22,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <HomePage />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/" element={<HomePage />}/>
         <Route path="/ytclone" element={<YouTubePage />} />
         <Route path="/searchresults" element={<SearchResultsPage />} />
         <Route path="/watch" element={<VideoPage/>} />

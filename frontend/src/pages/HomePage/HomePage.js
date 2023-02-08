@@ -32,7 +32,8 @@ const HomePage = () => {
     fetchCars();
   }, [token]);
   return (
-    <div className="container">
+    user && 
+    (<div className="container">
       <h1>Home Page for {user.username}!</h1>
       {cars &&
         cars.map((car) => (
@@ -40,7 +41,7 @@ const HomePage = () => {
             {car.year} {car.model} {car.make}
           </p>
         ))}
-    </div>
+    </div>)
   );
 };
 

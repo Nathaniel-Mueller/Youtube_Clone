@@ -18,7 +18,7 @@ const YouTubePage = () => {
 
     async function searchYoutubeDatabase(){
         try {
-           let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${formData.text}&key=${KEY}&part=snippet`,{
+           let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${formData.text}&key=${KEY}&part=snippet&maxResults=20`,{
            })
            //console.log(response.data.items)
            navigate('/searchresults', {
